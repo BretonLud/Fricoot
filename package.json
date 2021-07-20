@@ -1,0 +1,33 @@
+{
+  "name": "fricoot",
+  "version": "1.0.0",
+  "description": "kahoot",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "file": "^0.2.2",
+    "loader": "^2.1.1",
+    "webpack": "^5.45.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.2",
+    "babel-preset-env": "^1.7.0",
+    "terser-webpack-plugin": "^5.1.4",
+    "webpack-cli": "^4.7.2"
+  },
+  "scripts": {
+    "dev": "webpack",
+    "prod": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BretonLud/Fricoot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BretonLud/Fricoot/issues"
+  },
+  "homepage": "https://github.com/BretonLud/Fricoot#readme"
+}
