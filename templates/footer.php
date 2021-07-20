@@ -1,6 +1,6 @@
     <footer>
         <hr>
-        <p>Copyrigth Laurent, Stephane, Ludovic</p>
+        <p>Copyright Laurent, Stephane, Ludovic</p>
     </footer>
     </body>
 </html>
