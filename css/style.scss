@@ -1,5 +1,6 @@
 @import './varialbe.scss';
 @import './formindex.scss';
+@import './heritage.scss';
 
 html {
     box-sizing: border-box;
@@ -28,23 +29,17 @@ body{
 
 .box{
     /* Uniquement centrer le formulaire sur la page */ 
-    display: flex; 
-    flex-direction: column;
-    overflow-y: hidden;
-    height: 100%;
-    max-height: 100%;
-    user-select: none;
+    @extend %box;
     width: 300px;
     border: 3px solid $colorblack;
     margin: 0 auto;
     box-shadow: 2px 2px 2px 2px $colorblack ;
     /* Encadré pour voir les limites du formulaire */ 
-    padding: 1em;
-    margin-top: 12.5%;
-    margin-bottom: 12.5%;
-    text-align: center;
-    z-index: 1000;
-  } 
+  }
+  
+.boxy{
+    @extend %box;
+}
 
 .test {
     position: relative;

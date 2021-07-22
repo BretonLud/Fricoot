@@ -43,12 +43,17 @@ if ($insertIsOk) {
             <div class="background__Background-sc-15eg2v3-0 test1">
                 <aside class="background-shapes__CircleShape-waao7z-1 gVOCQO"></aside>
                 <aside class="background-shapes__CircleShape-waao7z-1 eanPtI"></aside>
-                <div class="box">
+                <div class="boxy">
+                    <div class="question"><div>
+                    <div class="reponse"></div>
+                    <div class="reponse1"></div> 
+                    <div class="reponse2"></div> 
+                    <div class="reponse3"></div>
                 </div>
             </div>
         </div>
     </nav>
-    <p class="count">You will be redirected in <span id="counter">30</span> second(s).</p>
+    <h1 class="count">Vous avez <span id="counter">20</span> second(s) pour répondre.</h1>
     <script type="text/javascript">
         function countdown() {
             var i = document.getElementById('counter');
