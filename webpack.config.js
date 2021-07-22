@@ -1,10 +1,11 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const dev = process.env.NODE_ENV === "dev"
 
 module.exports = {
     entry: './src/index.js',
-    watch: true,
+    watch: dev,
     output: {
         path: path.resolve('./dist'),
             filename: 'main.js'
@@ -25,11 +26,11 @@ module.exports = {
                 test: /\.scss$/,
                 use: [
                   // fallback to style-loader in development
-                  process.env.NODE_ENV !== 'production'
+                  process.env.NODE_ENV === dev
                     ? 'style-loader'
                     : MiniCssExtractPlugin.loader,
                   'css-loader',
-                  'sass-loader',
+                  'sass-loader'
                 ],
             },  
         ],
