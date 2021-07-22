@@ -53,7 +53,7 @@ if ($insertIsOk) {
             </div>
         </div>
     </nav>
-    <h1 class="count">Vous avez <span id="counter">20</span> second(s) pour répondre.</h1>
+    <h1 class="count">Vous avez <span id="counter">20</span> seconde(s) pour répondre.</h1>
     <script type="text/javascript">
         function countdown() {
             var i = document.getElementById('counter');

@@ -51,7 +51,10 @@ session_start();
                             <input name="pin" id="pin" class="champs" placeholder="Code Pin" maxlength="10">
                         </div>
                         <div class="button" id="submit">
-                            <input name="start" type="submit" value="Valider">
+                            <input name="start" type="submit" value="Valider">                            
+                        </div>
+                        <div>
+                            <p class="lien">Envie de créer votre questionnaire c'est <a href="./admin/index.php"> ici </a></p>
                         </div>
                     </form>
                 </div>

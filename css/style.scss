@@ -2,12 +2,17 @@
 @import './formindex.scss';
 @import './heritage.scss';
 
+* {
+    margin:0;   
+    padding:0;
+}
+
 html {
     box-sizing: border-box;
 } 
 
-html, body {
-    height: 100%;
+body, html{
+    height:100%;
 }
 
 body{
@@ -21,10 +26,10 @@ body{
     color: rgb(51, 51, 51);
     font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 1.25rem;
-    height: 100%;
     padding: 0px;
     border: 0px none;
-    font: inherit;    
+    font: inherit;
+    text-align:center;    
 }
 
 .box{
@@ -32,9 +37,9 @@ body{
     @extend %box;
     width: 300px;
     border: 3px solid $colorblack;
-    margin: 0 auto;
     box-shadow: 2px 2px 2px 2px $colorblack ;
-    /* Encadré pour voir les limites du formulaire */ 
+    /* Encadré pour voir les limites du formulaire */
+    z-index: 3;
   }
   
 .boxy{
@@ -86,10 +91,6 @@ body{
     display: block;
     z-index: 1;
 }
-
-
-
-
  header{
      z-index: 1000;
 }
@@ -103,8 +104,14 @@ h1{
  }
 
  footer{
+    position:absolute;
+    bottom:0;    
+    width:100%;    
+    padding-top:50px;    
+    height:50px;
     text-align: right;
     color: white;
+    z-index: 1000;    
  }
 
  .count{
