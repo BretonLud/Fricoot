@@ -20,15 +20,18 @@ module.exports = {
                         presets: ['@babel/preset-env']
                     }
                 }
-            },
-            {
-                test: /\.css$/i,
-                use: [MiniCssExtractPlugin.loader, "css-loader"],
             },            
             {
-                test: /.s?css$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
-            },            
+                test: /\.scss$/,
+                use: [
+                  // fallback to style-loader in development
+                  process.env.NODE_ENV !== 'production'
+                    ? 'style-loader'
+                    : MiniCssExtractPlugin.loader,
+                  'css-loader',
+                  'sass-loader',
+                ],
+            },  
         ],
         
     },

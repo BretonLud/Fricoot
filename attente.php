@@ -4,7 +4,7 @@ session_start();
 ?>
 <!--ouverture d'une connexion à la BDB quizz-->
 <?php
-$objetPdo = new PDO('mysql:host=localhost;dbname=quizz', 'laurent', '12345');
+$objetPdo = new PDO('mysql:host=localhost;dbname=quizz', 'Ludovic', 'Breton.1505');
 
 //preparation de la requête d'insertion (SQL)
 $pdoStat = $objetPdo->prepare('INSERT INTO users VALUES (NULL, :pseudo, :pin)');
@@ -48,7 +48,7 @@ if ($insertIsOk) {
             </div>
         </div>
     </nav>
-    <p>You will be redirected in <span id="counter">10</span> second(s).</p>
+    <p class="count">You will be redirected in <span id="counter">30</span> second(s).</p>
     <script type="text/javascript">
         function countdown() {
             var i = document.getElementById('counter');
