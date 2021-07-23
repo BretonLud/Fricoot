@@ -83,6 +83,9 @@ a:active {
   text-align: center;
   z-index: 1000; }
 
+.r1 {
+  float: left; }
+
 * {
   margin: 0;
   padding: 0; }
