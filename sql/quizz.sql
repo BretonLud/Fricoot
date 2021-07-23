@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : mer. 21 juil. 2021 à 15:52
+-- Généré le : ven. 23 juil. 2021 à 09:34
 -- Version du serveur :  10.3.29-MariaDB-0ubuntu0.20.04.1
 -- Version de PHP : 7.4.3
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `quizz`
 --
+CREATE DATABASE IF NOT EXISTS `quizz` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `quizz`;
 
 -- --------------------------------------------------------
 
@@ -28,9 +30,10 @@ SET time_zone = "+00:00";
 -- Structure de la table `questions`
 --
 
+DROP TABLE IF EXISTS `questions`;
 CREATE TABLE `questions` (
   `id` int(11) NOT NULL,
-  `question_name` text NOT NULL,
+  `question_name` varchar(250) NOT NULL,
   `reponses_1` varchar(250) NOT NULL,
   `reponses_2` varchar(250) NOT NULL,
   `reponses_3` varchar(250) NOT NULL,
@@ -54,6 +57,7 @@ INSERT INTO `questions` (`id`, `question_name`, `reponses_1`, `reponses_2`, `rep
 -- Structure de la table `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `pseudo` varchar(120) NOT NULL,
@@ -65,14 +69,17 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `pseudo`, `code_pin`) VALUES
-(30, 'laurent', 0),
-(31, 'laurent', 666),
-(32, 'laurent', 666),
-(33, 'laurent', 666);
+(30, 'laurent', 0);
 
 --
 -- Index pour les tables déchargées
 --
+
+--
+-- Index pour la table `questions`
+--
+ALTER TABLE `questions`
+  ADD UNIQUE KEY `id` (`id`);
 
 --
 -- Index pour la table `users`
@@ -83,6 +90,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT pour les tables déchargées
 --
+
+--
+-- AUTO_INCREMENT pour la table `questions`
+--
+ALTER TABLE `questions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT pour la table `users`
