@@ -1,7 +1,9 @@
 <?php
 
 // ouverture d'une connexion à la bdd agenda
-$objetPdo = new PDO("mysql:host=localhost;dbname=quizz", 'laurent', '12345');
+require '../Connexion.php';
+
+$dbh = (new Connexion())->conect();
 
 $question = $_POST['question_name'];
 $r = $_POST['reponse_1'];
@@ -14,7 +16,7 @@ $points = $_POST['points'];
 
 if ( !empty($question) && !empty($r) && !empty($r1) && !empty($r2) && !empty($r3) && !empty($answer) && !empty($points)){
 // préparation de la requête d'insertion SQL
-    $pdoStat = $objetPdo->prepare('INSERT INTO questions(question_name, reponses_1, reponses_2, reponses_3, reponses_4, reponse_bonne, points) VALUES (:question_name, :reponse_1, :reponse_2, :reponse_3, :reponse_4, :reponse_bonne, :points)');
+    $pdoStat = $dbh->prepare('INSERT INTO questions(question_name, reponses_1, reponses_2, reponses_3, reponses_4, reponse_bonne, points) VALUES (:question_name, :reponse_1, :reponse_2, :reponse_3, :reponse_4, :reponse_bonne, :points)');
     //on lie chaque marqueur à une valeur
   
     $pdoStat->bindParam(':question_name', $question);

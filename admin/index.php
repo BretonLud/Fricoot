@@ -61,7 +61,7 @@
 
     <?php
     $Generator = "1234567890";
-    $pass = substr(str_shuffle($Generator), 0, 6);
+    $pass = substr(str_shuffle($Generator), 0, 8);
     echo $pass
     ?>
 
