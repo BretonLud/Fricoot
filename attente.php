@@ -1,26 +1,8 @@
-<?php ob_start();
-session_start();
-//require_once 'config.php';
-?>
-<!--ouverture d'une connexion à la BDB quizz-->
-<?php
-$objetPdo = new PDO('mysql:host=localhost;dbname=quizz', 'Ludovic', 'Breton.1505');
+<?php session_start();
+require 'Connexion.php';
 
-//preparation de la requête d'insertion (SQL)
-$pdoStat = $objetPdo->prepare('INSERT INTO users VALUES (NULL, :pseudo, :pin)');
+$dbh = (new Connexion())->conect();
 
-//on lie chaque marqueur à une valuer
-$pdoStat->bindValue(':pseudo', $_POST['pseudo'], PDO::PARAM_STR);
-$pdoStat->bindValue(':pin', $_POST['pin'], PDO::PARAM_STR);
-
-//éxécution de la requète préparée
-$insertIsOk = $pdoStat->execute();
-
-if ($insertIsOk) {
-    $message = 'Le contact a été ajouté dans la BDD';
-} else {
-    $message = 'Echec de l\insertion';
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
