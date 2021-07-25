@@ -1,3 +1,62 @@
-.r1{
-    float:left
+.boxq{
+    @extend %box;
+    width: 50%;
+    margin-top: 11.5%;
+    margin-bottom: 11.5%;
+    border: 3px solid black;
+    box-shadow: 2px 2px 2px 2px black;
+    /* Encadré pour voir les limites du formulaire */
+    z-index: 3;
+    justify-content: center;
+}
+
+.question{    
+    width: 100%;    
+    color: white;  
+}
+
+.question label{
+    display: block;
+    width: 125px;
+    text-align: center;
+}
+
+.q{
+    margin-bottom: 5px;
+}
+
+.r{
+    margin-top: 10px;
+}
+
+.r1 input{
+     @extend %reponse;
+}
+
+.r2 input{
+    @extend %reponse;
+}
+
+.r3 input{
+    @extend %reponse;
+}
+
+.r4 input{
+    @extend %reponse;
+}
+
+.answer{
+    margin-top: 20px;
+    float: bottom;
+}
+
+.points{
+    margin-top: 20px;
+    float: bottom;
+}
+
+.correct{
+    width: 50px;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
 }

@@ -68,7 +68,7 @@ a:active {
   background: black;
   color: yellow; }
 
-.box, .boxy {
+.boxq, .box, .boxy {
   display: flex;
   flex-direction: column;
   overflow-y: hidden;
@@ -81,8 +81,48 @@ a:active {
   text-align: center;
   z-index: 1000; }
 
-.r1 {
-  float: left; }
+.r1 input, .r2 input, .r3 input, .r4 input {
+  width: 100px;
+  box-sizing: border-box;
+  border: 1px solid #999; }
+
+.boxq {
+  width: 50%;
+  margin-top: 11.5%;
+  margin-bottom: 11.5%;
+  border: 3px solid black;
+  box-shadow: 2px 2px 2px 2px black;
+  /* Encadré pour voir les limites du formulaire */
+  z-index: 3;
+  justify-content: center; }
+
+.question {
+  width: 100%;
+  color: white; }
+
+.question label {
+  display: block;
+  width: 125px;
+  text-align: center; }
+
+.q {
+  margin-bottom: 5px; }
+
+.r {
+  margin-top: 10px; }
+
+.answer {
+  margin-top: 20px;
+  float: bottom; }
+
+.points {
+  margin-top: 20px;
+  float: bottom; }
+
+.correct {
+  width: 50px;
+  text-align: center;
+  font-family: 'Raleway', sans-serif; }
 
 * {
   margin: 0;
