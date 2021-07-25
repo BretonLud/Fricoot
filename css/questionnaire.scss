@@ -12,21 +12,36 @@
 
 .question{    
     width: 100%;    
-    color: white;  
+    color: white;
 }
 
 .question label{
-    display: block;
+    display: inline-block;
     width: 125px;
     text-align: center;
 }
 
+td{
+    display: block;
+}
+
+
+.quest input{
+    width: 400px;
+  }
+
 .q{
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .r{
     margin-top: 10px;
+    margin-bottom: 10px; 
+}
+
+.r1{    
+    float: left;
+    margin-left: 110px;
 }
 
 .r1 input{
@@ -35,6 +50,11 @@
 
 .r2 input{
     @extend %reponse;
+}
+
+.r3{
+    float: left;
+    margin-left: 110px;
 }
 
 .r3 input{
@@ -46,13 +66,19 @@
 }
 
 .answer{
+    margin-left: -50px;
     margin-top: 20px;
-    float: bottom;
 }
 
 .points{
     margin-top: 20px;
-    float: bottom;
+    margin-bottom: 20px;
+    margin-left: -70px;  
+}
+
+.points input{
+    text-align: center;
+    width: 50px;
 }
 
 .correct{

@@ -82,9 +82,10 @@ a:active {
   z-index: 1000; }
 
 .r1 input, .r2 input, .r3 input, .r4 input {
-  width: 100px;
+  width: 150px;
   box-sizing: border-box;
-  border: 1px solid #999; }
+  border: 1px solid #999;
+  text-align: center; }
 
 .boxq {
   width: 50%;
@@ -101,23 +102,43 @@ a:active {
   color: white; }
 
 .question label {
-  display: block;
+  display: inline-block;
   width: 125px;
   text-align: center; }
 
+td {
+  display: block; }
+
+.quest input {
+  width: 400px; }
+
 .q {
-  margin-bottom: 5px; }
+  margin-bottom: 10px; }
 
 .r {
-  margin-top: 10px; }
+  margin-top: 10px;
+  margin-bottom: 10px; }
+
+.r1 {
+  float: left;
+  margin-left: 110px; }
+
+.r3 {
+  float: left;
+  margin-left: 110px; }
 
 .answer {
-  margin-top: 20px;
-  float: bottom; }
+  margin-left: -50px;
+  margin-top: 20px; }
 
 .points {
   margin-top: 20px;
-  float: bottom; }
+  margin-bottom: 20px;
+  margin-left: -70px; }
+
+.points input {
+  text-align: center;
+  width: 50px; }
 
 .correct {
   width: 50px;

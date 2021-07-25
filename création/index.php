@@ -25,50 +25,64 @@
                     <table>
                         <form action="insertion.php" method="post" class='question'>
                             <thead>
-                                <tr>
-                                    <th id='question'></th>
-                                    <th id='reponse'></th>                                
-                                    <th id='bonne'></th>                                
-                                    <th id='points'></th>
+                                <tr id='question'>
+                                    <th></th>
+                                </tr>
+                                <tr id='rep1'>
+                                    <th></th>
+                                </tr>
+                                <tr id='rep2'>                                
+                                    <th></th>
+                                </tr>
+                                <tr id='br+p'>                               
+                                    <th></th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="tbody">
                                 <tr>
-                                    <td>
+                                    <td class='quest'>
                                         <p class="q">Question 1 :</p>
-                                        <input id="question" type="text" name="question_name" required>
-                                    </td>                               
-                                    <td class='r1'>
-                                        <p class="r">Reponse :<p>
+                                        <input type="text" name="question_name" required>
+                                    </td>
+                                </tr>
+                                <tr> 
+                                    <td  class="r">     
+                                        <p>Reponse :<p>
+                                    </td>                                 
+                                    <td class='r1'>                                        
                                         <label for="reponse_1">1</label>
-                                        <input id="reponse_1" type="text" name="reponse_1" required >
+                                        <input type="text" name="reponse_1" required >
                                     </td>
                                     <td class='r2'>
                                         <label for="reponse_2">2</label>
-                                        <input id="reponse_2" type="text" name="reponse_2" required>
+                                        <input type="text" name="reponse_2" required>
                                     </td>
+                                </tr>
+                                <tr>    
                                     <td class='r3'>
                                         <label for="reponse_3">3</label>
-                                        <input id="reponse_3" type="text" name="reponse_3" required>
+                                        <input type="text" name="reponse_3" required>
                                     </td>
                                     <td class='r4'>
                                         <label for="reponse_4">4</label>
-                                        <input id="reponse_4" type="text" name="reponse_4" required>
-                                    </td>                                
+                                        <input type="text" name="reponse_4" required>
+                                    </td>
+                                </tr>
+                                <tr>                                   
                                     <td class='answer'>
                                         <label for="reponse_bonne">Bonne réponse :</label>
-                                        <input id="reponse_bonne" type="number" name="reponse_bonne" class="correct" value="1" min="1" max="4" required>
+                                        <input type="number" name="reponse_bonne" class="correct" value="1" min="1" max="4" required>
                                     </td>                            
                                     <td class='points'>
                                         <label for="points">Nombre de points :</label>
-                                        <input id="points" type="text" name="points" required min="1" max="100">
+                                        <input type="number" name="points" required min="1" max="100" values="5">
                                     </td>
                                 </tr>
                             </tbody>
                             <tfoot>
                                 <tr>
                                     <td>                     
-                                        <input type="button" id="ajoute" value="Ajouter une question" class="button"> 
+                                        <input type="button" value="Ajouter une question" class="button" onclick="ajouterLigne()"> 
                                     </td>
                                 </tr>
                                 <tr> 

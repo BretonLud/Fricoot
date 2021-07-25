@@ -15,7 +15,7 @@ Class Connexion {
  
   function conect(){
      
-   return $dbh = new PDO('mysql:host='.self::HOST.'; dbname='.self::DBNA,self::USER,self::PASW, array(PDO::ATTR_PERSISTENT=>true));
+   return $dbh = new PDO('mysql:host='.self::HOST.'; dbname='.self::DBNA,self::USER,self::PASW);
      }
      
    }
