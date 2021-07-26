@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="60x60" href="./css/images/apple-icon-60x60.png">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <script src="../src.script.js" async></script>	
+    <script src="../src/script.js" async></script>	
     <title>Question pour de l'oseille !</title>
 </head>
 
@@ -15,7 +15,7 @@
     
 <header>
         <h1>Votre questionnaire</h1>
-    </header>
+</header>
     <nav>
         <div class="controller__AppWrapper-sc-1m4rw0k-0 test">
             <div class="background__Background-sc-15eg2v3-0 test1">
@@ -23,29 +23,15 @@
                 <aside class="background-shapes__CircleShape-waao7z-1 eanPtI"></aside>
                 <div class="boxq">
                     <table>
-                        <form action="insertion.php" method="post" class='question'>
-                            <thead>
-                                <tr id='question'>
-                                    <th></th>
-                                </tr>
-                                <tr id='rep1'>
-                                    <th></th>
-                                </tr>
-                                <tr id='rep2'>                                
-                                    <th></th>
-                                </tr>
-                                <tr id='br+p'>                               
-                                    <th></th>
-                                </tr>
-                            </thead>
+                        <form action="insertion.php" method="post" class='question'>                           
                             <tbody id="tbody">
-                                <tr>
+                                <tr id='question'>
                                     <td class='quest'>
                                         <p class="q">Question 1 :</p>
                                         <input type="text" name="question_name" required>
                                     </td>
                                 </tr>
-                                <tr> 
+                                <tr id='rep1'> 
                                     <td  class="r">     
                                         <p>Reponse :<p>
                                     </td>                                 
@@ -58,7 +44,7 @@
                                         <input type="text" name="reponse_2" required>
                                     </td>
                                 </tr>
-                                <tr>    
+                                <tr id='rep2'>    
                                     <td class='r3'>
                                         <label for="reponse_3">3</label>
                                         <input type="text" name="reponse_3" required>
@@ -68,7 +54,7 @@
                                         <input type="text" name="reponse_4" required>
                                     </td>
                                 </tr>
-                                <tr>                                   
+                                <tr id='br+p'>                                   
                                     <td class='answer'>
                                         <label for="reponse_bonne">Bonne réponse :</label>
                                         <input type="number" name="reponse_bonne" class="correct" value="1" min="1" max="4" required>
