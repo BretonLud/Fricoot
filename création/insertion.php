@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // ouverture d'une connexion à la bdd agenda
 require '../Connexion.php';
 

@@ -21,58 +21,78 @@
             <div class="background__Background-sc-15eg2v3-0 test1">
                 <aside class="background-shapes__CircleShape-waao7z-1 gVOCQO"></aside>
                 <aside class="background-shapes__CircleShape-waao7z-1 eanPtI"></aside>
-                <div class="box">
-                    <div>Ajouter une questions</div>
-                    <form action="insertion.php" method="post">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <p>Question</p>
-                                    <input id="question_name" type="text" name="question_name" required>
-                                </td>
-                                <div><p>Reponse<p>
-                                <td>
-                                    <label for="reponse_1">1</label>
-                                    <input id="reponse_1" type="text" name="reponse_1" required class='r1'>
-                                </td>
-                                <td>
-                                    <label for="reponse_2">2</label>
-                                    <input id="reponse_2" type="text" name="reponse_2" required>
-                                </td>
-                                <td>
-                                    <label for="reponse_3">3</label>
-                                    <input id="reponse_3" type="text" name="reponse_3" required>
-                                </td>
-                                <td>
-                                    <label for="reponse_4">4</label>
-                                    <input id="reponse_4" type="text" name="reponse_4" required>
-                                </td>
-                                <td>
-                                    <label for="reponse_bonne">Bonne réponse</label>
-                                    <input id="reponse_bonne" type="text" name="reponse_bonne" required>
-                                </td>
-                                <td>
-                                    <label for="points">Nombre de points</label>
-                                    <input id="points" type="text" name="points" required>
-                                </td>
-                            </tr>
-                        </tbody>
-                        </div>
-                        <div class="button">
-                        <input type="submit" value="Enregistrer">
-                        </div>
-                        <div class="boxy">
-                            <input type="button" id="ajoute" value="Ajouter une question">
-                        </div>                        
-                    </form>
+                <div class="boxq">
+                    <table>
+                        <form action="insertion.php" method="post" class='question'>
+                            <thead>
+                                <tr id='question'>
+                                    <th></th>
+                                </tr>
+                                <tr id='rep1'>
+                                    <th></th>
+                                </tr>
+                                <tr id='rep2'>                                
+                                    <th></th>
+                                </tr>
+                                <tr id='br+p'>                               
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody">
+                                <tr>
+                                    <td class='quest'>
+                                        <p class="q">Question 1 :</p>
+                                        <input type="text" name="question_name" required>
+                                    </td>
+                                </tr>
+                                <tr> 
+                                    <td  class="r">     
+                                        <p>Reponse :<p>
+                                    </td>                                 
+                                    <td class='r1'>                                        
+                                        <label for="reponse_1">1</label>
+                                        <input type="text" name="reponse_1" required >
+                                    </td>
+                                    <td class='r2'>
+                                        <label for="reponse_2">2</label>
+                                        <input type="text" name="reponse_2" required>
+                                    </td>
+                                </tr>
+                                <tr>    
+                                    <td class='r3'>
+                                        <label for="reponse_3">3</label>
+                                        <input type="text" name="reponse_3" required>
+                                    </td>
+                                    <td class='r4'>
+                                        <label for="reponse_4">4</label>
+                                        <input type="text" name="reponse_4" required>
+                                    </td>
+                                </tr>
+                                <tr>                                   
+                                    <td class='answer'>
+                                        <label for="reponse_bonne">Bonne réponse :</label>
+                                        <input type="number" name="reponse_bonne" class="correct" value="1" min="1" max="4" required>
+                                    </td>                            
+                                    <td class='points'>
+                                        <label for="points">Nombre de points :</label>
+                                        <input type="number" name="points" required min="1" max="100" values="5">
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td>                     
+                                        <input type="button" value="Ajouter une question" class="button" onclick="ajouterLigne()"> 
+                                    </td>
+                                </tr>
+                                <tr> 
+                                    <td>                      
+                                        <input type="submit" value="Enregistrer" class="button">
+                                    </td>
+                                </tr>                               
+                            </tfoot>                                                 
+                        </form>
+                    </table>    
                 </div>
             </div>
         </div>                                              
