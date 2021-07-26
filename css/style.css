@@ -146,6 +146,10 @@ td {
   font-family: 'Raleway', sans-serif; }
 
 * {
+  margin: 100px;
+  padding: 100px; }
+
+* {
   margin: 0;
   padding: 0; }
 
