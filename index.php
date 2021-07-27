@@ -25,7 +25,7 @@ session_start();
                 <div class="boxi">
                     <a href="./creation/index.php" class="valid">Créer votre questionnaire</a>
                 </div>
-                <div class="boxi">
+                <div class="boxi1">
                     <a href="./player/index.php" class="valid">Rejoindre une partie</a>
                 </div>
             </div>

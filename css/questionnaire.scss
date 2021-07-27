@@ -1,10 +1,8 @@
 .boxq{
     @extend %box;
     width: 50%;
-    margin-top: 11.5%;
-    margin-bottom: 11.5%;
-    border: 3px solid black;
-    box-shadow: 2px 2px 2px 2px black;
+    margin-top: 5%;
+    margin-bottom: 5%;
     /* Encadré pour voir les limites du formulaire */
     z-index: 3;
     justify-content: center;
@@ -17,7 +15,6 @@
 
 .question label{
     display: inline-block;
-    width: 105px;
     text-align: center;
 }
 
@@ -44,8 +41,9 @@ td{
     margin-bottom: 10px; 
 }
 
-.r1{    
+.r1{
     float: left;
+    margin-left: 5%;
 }
 
 .r1 input{
@@ -58,6 +56,7 @@ td{
 
 .r3{
     float: left;
+    margin-left: 5%;    
 }
 
 .r3 input{

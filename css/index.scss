@@ -1,0 +1,10 @@
+.boxi{
+    @extend %box;
+    margin-top: 50px;
+}
+
+.boxi1{
+    @extend %box;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
