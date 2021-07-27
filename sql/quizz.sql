@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : ven. 23 juil. 2021 à 09:34
+-- Généré le : mar. 27 juil. 2021 à 14:26
 -- Version du serveur :  10.3.29-MariaDB-0ubuntu0.20.04.1
 -- Version de PHP : 7.4.3
 
@@ -30,26 +30,24 @@ USE `quizz`;
 -- Structure de la table `questions`
 --
 
-DROP TABLE IF EXISTS `questions`;
 CREATE TABLE `questions` (
-  `id` int(11) NOT NULL,
+  `question_number` int(11) NOT NULL,
   `question_name` varchar(250) NOT NULL,
-  `reponses_1` varchar(250) NOT NULL,
-  `reponses_2` varchar(250) NOT NULL,
-  `reponses_3` varchar(250) NOT NULL,
-  `reponses_4` varchar(250) NOT NULL,
-  `reponse_bonne` varchar(250) NOT NULL,
-  `points` int(50) NOT NULL
+  `points` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
 --
--- Déchargement des données de la table `questions`
+-- Structure de la table `reponse`
 --
 
-INSERT INTO `questions` (`id`, `question_name`, `reponses_1`, `reponses_2`, `reponses_3`, `reponses_4`, `reponse_bonne`, `points`) VALUES
-(1, 'Capitale de la France', 'Lyon', 'Lure', 'Paris', 'Tours', '3', 20),
-(2, 'De quel couleur est le cheval blanc de Henry ', 'Rose', 'Bleu', 'Noir', 'Blanc', '4', 20),
-(3, 'J\'aime pas la viande, j\'aime le vélo, j’ai 25 ans, j\'aime la bière, qui suis-je', 'Vincent', 'Manu', 'Floriane', 'Cyril', '1', 99);
+CREATE TABLE `reponse` (
+  `id` int(11) NOT NULL,
+  `question_number` int(11) NOT NULL,
+  `reponse_bonne` tinyint(4) NOT NULL,
+  `reponse` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -57,19 +55,12 @@ INSERT INTO `questions` (`id`, `question_name`, `reponses_1`, `reponses_2`, `rep
 -- Structure de la table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `pseudo` varchar(120) NOT NULL,
+  `points` int(255) NOT NULL,
   `code_pin` int(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `users`
---
-
-INSERT INTO `users` (`id`, `pseudo`, `code_pin`) VALUES
-(30, 'laurent', 0);
 
 --
 -- Index pour les tables déchargées
@@ -79,7 +70,7 @@ INSERT INTO `users` (`id`, `pseudo`, `code_pin`) VALUES
 -- Index pour la table `questions`
 --
 ALTER TABLE `questions`
-  ADD UNIQUE KEY `id` (`id`);
+  ADD UNIQUE KEY `id` (`question_number`);
 
 --
 -- Index pour la table `users`
@@ -95,7 +86,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `question_number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT pour la table `users`

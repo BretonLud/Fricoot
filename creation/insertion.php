@@ -1,6 +1,6 @@
 <?php
 session_start();
-// ouverture d'une connexion à la bdd agenda
+// ouverture d'une connexion à la bdd 
 require '../Connexion.php';
 
 $dbh = (new Connexion())->conect();
