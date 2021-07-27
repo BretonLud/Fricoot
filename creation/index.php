@@ -31,7 +31,7 @@
                                         <input type="text" name="question_name[]" required>
                                     </td>                                    
                                 </tr>
-                                <tr id='rep1'> 
+                                <tr id='rep1' class="rep1"> 
                                     <td  class="r">     
                                         <p>Reponse :<p>
                                     </td>                                 
@@ -44,7 +44,7 @@
                                         <input type="text" name="reponse_2[]" required>
                                     </td>
                                 </tr>
-                                <tr id='rep2'>    
+                                <tr id='rep2' class="rep2">    
                                     <td class='r3'>
                                         <label for="reponse_3">3</label>
                                         <input type="text" name="reponse_3[]" required>

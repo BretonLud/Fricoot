@@ -68,9 +68,8 @@
   background: black;
   color: yellow; }
 
-.boxq, .box, .boxy, .boxi {
+.boxq, .boxi, .boxi1, .box, .boxy {
   display: flex;
-  flex-direction: column;
   overflow-y: hidden;
   height: 100%;
   max-height: 100%;
@@ -79,7 +78,8 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  z-index: 1000; }
+  z-index: 1000;
+  justify-content: center; }
 
 .r1 input, .r2 input, .r3 input, .r4 input {
   width: 150px;
@@ -89,10 +89,8 @@
 
 .boxq {
   width: 50%;
-  margin-top: 11.5%;
-  margin-bottom: 11.5%;
-  border: 3px solid black;
-  box-shadow: 2px 2px 2px 2px black;
+  margin-top: 5%;
+  margin-bottom: 5%;
   /* Encadré pour voir les limites du formulaire */
   z-index: 3;
   justify-content: center; }
@@ -103,7 +101,6 @@
 
 .question label {
   display: inline-block;
-  width: 105px;
   text-align: center; }
 
 td {
@@ -124,10 +121,12 @@ td {
   margin-bottom: 10px; }
 
 .r1 {
-  float: left; }
+  float: left;
+  margin-left: 5%; }
 
 .r3 {
-  float: left; }
+  float: left;
+  margin-left: 5%; }
 
 .answer {
   margin-left: -50px;
@@ -146,6 +145,13 @@ td {
   width: 50px;
   text-align: center;
   font-family: 'Raleway', sans-serif; }
+
+.boxi {
+  margin-top: 50px; }
+
+.boxi1 {
+  margin-top: 50px;
+  margin-bottom: 50px; }
 
 * {
   margin: 0;
@@ -232,14 +238,16 @@ h1 {
   color: white; }
 
 footer {
-  position: absolute;
-  bottom: 0;
+  position: fixed;
+  bottom: -10px;
   width: 100%;
   padding-top: 50px;
-  height: 50px;
+  height: 40px;
   text-align: right;
-  color: white;
-  z-index: 1000; }
+  color: white; }
+
+footer hr {
+  color: white; }
 
 .count {
   color: white; }
@@ -250,7 +258,4 @@ footer {
   background: #CCC;
   text-decoration: none;
   color: blue; }
-
-.boxi {
-  margin-top: 50px; }
 
