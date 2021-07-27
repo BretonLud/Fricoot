@@ -33,7 +33,7 @@ session_start();
 </head>
 <body>
     <header>  
-        <h1> Zone player</h1>     
+        <h1>Zone pour les joueurs</h1>     
     </header>
     <nav>	
         <div class="controller__AppWrapper-sc-1m4rw0k-0 test">
