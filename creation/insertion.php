@@ -47,7 +47,7 @@ for ($i = 0; $i < $nmbquestion; ++$i){
 if ($err === true){
     header('Location:./index.php');
 } else {
-    header('Location:../attente.php');
+    header('Location:./attente.php');
 }
 
 
