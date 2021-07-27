@@ -22,14 +22,14 @@
                 <aside class="background-shapes__CircleShape-waao7z-1 gVOCQO"></aside>
                 <aside class="background-shapes__CircleShape-waao7z-1 eanPtI"></aside>
                 <div class="boxq">
-                    <table>
-                        <form action="insertion.php" method="post" class='question'>                           
+                    <form action="insertion.php" method="post">   
+                        <table class='question'>                                                   
                             <tbody id="tbody">
                                 <tr id='question'>
                                     <td class='quest'>
                                         <p class="q">Question 1 :</p>
-                                        <input type="text" name="question_name" required>
-                                    </td>
+                                        <input type="text" name="question_name[]" required>
+                                    </td>                                    
                                 </tr>
                                 <tr id='rep1'> 
                                     <td  class="r">     
@@ -37,31 +37,31 @@
                                     </td>                                 
                                     <td class='r1'>                                        
                                         <label for="reponse_1">1</label>
-                                        <input type="text" name="reponse_1" required >
+                                        <input type="text" name="reponse_1[]" required >
                                     </td>
                                     <td class='r2'>
                                         <label for="reponse_2">2</label>
-                                        <input type="text" name="reponse_2" required>
+                                        <input type="text" name="reponse_2[]" required>
                                     </td>
                                 </tr>
                                 <tr id='rep2'>    
                                     <td class='r3'>
                                         <label for="reponse_3">3</label>
-                                        <input type="text" name="reponse_3" required>
+                                        <input type="text" name="reponse_3[]" required>
                                     </td>
                                     <td class='r4'>
                                         <label for="reponse_4">4</label>
-                                        <input type="text" name="reponse_4" required>
+                                        <input type="text" name="reponse_4[]" required>
                                     </td>
                                 </tr>
                                 <tr id='br+p'>                                   
                                     <td class='answer'>
                                         <label for="reponse_bonne">Bonne réponse :</label>
-                                        <input type="number" name="reponse_bonne" class="correct" value="1" min="1" max="4" required>
+                                        <input type="number" name="reponse_bonne[]" class="correct" value="1" min="1" max="4" required>
                                     </td>                            
                                     <td class='points'>
                                         <label for="points">Nombre de points :</label>
-                                        <input type="number" name="points" required min="1" max="100" values="5">
+                                        <input type="number" name="points[]" required min="1" max="100" values="5">
                                     </td>
                                 </tr>
                             </tbody>
@@ -76,9 +76,9 @@
                                         <input type="submit" value="Enregistrer" class="button">
                                     </td>
                                 </tr>                               
-                            </tfoot>                                                 
-                        </form>
-                    </table>    
+                            </tfoot>                        
+                        </table>
+                    </form>        
                 </div>
             </div>
         </div>                                              

@@ -54,7 +54,7 @@ session_start();
                             <input name="start" type="submit" value="Valider">                            
                         </div>
                         <div>
-                            <p class="lien">Envie de créer votre questionnaire c'est <a href="./création/index.php"> ici </a></p>
+                            <p class="lien">Envie de créer votre questionnaire c'est <a href="./creation/index.php"> ici </a></p>
                         </div>
                     </form>
                 </div>

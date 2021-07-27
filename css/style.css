@@ -103,29 +103,31 @@ a:active {
 
 .question label {
   display: inline-block;
-  width: 125px;
+  width: 105px;
   text-align: center; }
 
 td {
   display: block; }
 
 .quest input {
-  width: 400px; }
+  width: 400px;
+  text-align: center; }
 
 .q {
   margin-bottom: 10px; }
+
+.q input {
+  text-align: center; }
 
 .r {
   margin-top: 10px;
   margin-bottom: 10px; }
 
 .r1 {
-  float: left;
-  margin-left: 110px; }
+  float: left; }
 
 .r3 {
-  float: left;
-  margin-left: 110px; }
+  float: left; }
 
 .answer {
   margin-left: -50px;
@@ -144,10 +146,6 @@ td {
   width: 50px;
   text-align: center;
   font-family: 'Raleway', sans-serif; }
-
-* {
-  margin: 100px;
-  padding: 100px; }
 
 * {
   margin: 0;
