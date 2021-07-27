@@ -52,31 +52,31 @@
      text-decoration: none;
  }
 
- a {
+ .a {
     outline: none;
     text-decoration: none;
     padding: 2px 1px 0;
   }
   
-  a:link {
+  .a:link {
     color: yellow;
   }
   
-  a:visited {
+  .a:visited {
     color: yellow;
   }
   
-  a:focus {
+  .a:focus {
     border-bottom: 1px solid;
     background: $colorblack;
   }
   
-  a:hover {
+  .a:hover {
     border-bottom: 1px solid;
     background: $colorblack;
   }
   
-  a:active {
+  .a:active {
     background: $colorblack;
     color: yellow;
   }
