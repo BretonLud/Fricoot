@@ -16,15 +16,21 @@
 <header>
         <h1>Votre questionnaire</h1>
 </header>
-    <nav>
+    <nav>        
         <div class="controller__AppWrapper-sc-1m4rw0k-0 test">
             <div class="background__Background-sc-15eg2v3-0 test1">
                 <aside class="background-shapes__CircleShape-waao7z-1 gVOCQO"></aside>
                 <aside class="background-shapes__CircleShape-waao7z-1 eanPtI"></aside>
                 <div class="boxq">
-                    <form action="insertion.php" method="post">   
+                    <form action="insertion.php" method="post">                         
                         <table class='question'>                                                   
                             <tbody id="tbody">
+                                <tr>
+                                    <td class='quest'>
+                                        <h3 class="q"> Titre du questionnaire :</h3>
+                                        <input name="title" type="text" id="titre" required>
+                                    </td>
+                                </tr>  
                                 <tr id='question'>
                                     <td class='quest'>
                                         <p class="q">Question 1 :</p>
