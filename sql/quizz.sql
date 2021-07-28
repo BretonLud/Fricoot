@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : mar. 27 juil. 2021 à 14:26
+-- Généré le : mer. 28 juil. 2021 à 15:44
 -- Version du serveur :  10.3.29-MariaDB-0ubuntu0.20.04.1
 -- Version de PHP : 7.4.3
 
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `quizz`
 --
-CREATE DATABASE IF NOT EXISTS `quizz` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `quizz`;
 
 -- --------------------------------------------------------
 
@@ -31,23 +29,48 @@ USE `quizz`;
 --
 
 CREATE TABLE `questions` (
-  `question_number` int(11) NOT NULL,
-  `question_name` varchar(250) NOT NULL,
-  `points` int(100) NOT NULL
+  `id` int(11) NOT NULL,
+  `question` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `questions`
+--
+
+INSERT INTO `questions` (`id`, `question`) VALUES
+(1, 'Capital de la France'),
+(2, 'Couleur du cheval blanc d\'henri 4');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `quiz`
+--
+
+CREATE TABLE `quiz` (
+  `id` int(11) NOT NULL,
+  `nom` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `reponse`
+-- Structure de la table `reponses`
 --
 
-CREATE TABLE `reponse` (
-  `id` int(11) NOT NULL,
-  `question_number` int(11) NOT NULL,
+CREATE TABLE `reponses` (
+  `id_question` int(11) NOT NULL,
   `reponse_bonne` tinyint(4) NOT NULL,
-  `reponse` text NOT NULL
+  `reponse` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `reponses`
+--
+
+INSERT INTO `reponses` (`id_question`, `reponse_bonne`, `reponse`) VALUES
+(1, 2, NULL),
+(2, 3, NULL);
 
 -- --------------------------------------------------------
 
@@ -70,7 +93,13 @@ CREATE TABLE `users` (
 -- Index pour la table `questions`
 --
 ALTER TABLE `questions`
-  ADD UNIQUE KEY `id` (`question_number`);
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `quiz`
+--
+ALTER TABLE `quiz`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `users`
@@ -86,7 +115,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `question_number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT pour la table `quiz`
+--
+ALTER TABLE `quiz`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `users`
