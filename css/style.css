@@ -106,7 +106,11 @@
 td {
   display: block; }
 
-.quest input {
+.number {
+  width: 20px;
+  background-color: white; }
+
+.quest .qu {
   width: 400px;
   text-align: center; }
 

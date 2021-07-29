@@ -2,25 +2,7 @@
 session_start();
 //require_once 'config.php';
 ?>
-<?php 
-    if( !empty( $_POST )){
-		try {
-			$user_obj = new Cl_User();
-			$data = $user_obj->login( $_POST );
-			if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']){
-				$_SESSION['success'] = 'Vous êtes connecté';
-				header('Location: home.php');exit;
-			}
-		} catch (Exception $e) {
-			$error = $e->getMessage();
-			$_SESSION['error'] = $error;
-		}
-	}
-	//print_r($_SESSION);
-	if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']){
-		header('Location: home.php');exit;
-	}
-?>
+
 <!DOCTYPE html>
 <html class="wf-montserrat-n7-active wf-montserrat-n4-active wf-montserrat-n5-active wf-montserrat-n6-active wf-montserrat-n8-active wf-montserrat-n9-active wf-active" lang="fr">
 <head>

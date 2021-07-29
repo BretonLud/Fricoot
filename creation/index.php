@@ -28,13 +28,13 @@
                                 <tr>
                                     <td class='quest'>
                                         <h3 class="q"> Titre du questionnaire :</h3>
-                                        <input name="title" type="text" id="titre" required>
+                                        <input name="title" type="text" id="titre" class="qu" required>
                                     </td>
                                 </tr>  
-                                <tr id='question'>
-                                    <td class='quest'>
-                                        <p class="q">Question 1 :</p>
-                                        <input type="text" name="question_name[]" required>
+                                <tr id='question'>                                                                                                         
+                                    <td class='quest'>                                        
+                                        <p class="q">Question <label>n°</label> : <input type="text" value="1" class="number" inherit min="1" autocomplete="off" readonly/></p>
+                                        <input type="text" name="question_name[]" required class="qu"/>
                                     </td>                                    
                                 </tr>
                                 <tr id='rep1' class="rep1"> 
@@ -43,38 +43,38 @@
                                     </td>                                 
                                     <td class='r1'>                                        
                                         <label for="reponse_1">1</label>
-                                        <input type="text" name="reponse_1[]" required >
+                                        <input type="text" name="reponse1[]" required />
                                     </td>
                                     <td class='r2'>
                                         <label for="reponse_2">2</label>
-                                        <input type="text" name="reponse_2[]" required>
+                                        <input type="text" name="reponse2[]" required />
                                     </td>
                                 </tr>
                                 <tr id='rep2' class="rep2">    
                                     <td class='r3'>
                                         <label for="reponse_3">3</label>
-                                        <input type="text" name="reponse_3[]" required>
+                                        <input type="text" name="reponse3[]" required />
                                     </td>
                                     <td class='r4'>
                                         <label for="reponse_4">4</label>
-                                        <input type="text" name="reponse_4[]" required>
+                                        <input type="text" name="reponse4[]" required />
                                     </td>
                                 </tr>
                                 <tr id='br+p'>                                   
                                     <td class='answer'>
                                         <label for="reponse_bonne">Bonne réponse :</label>
-                                        <input type="number" name="reponse_bonne[]" class="correct" value="1" min="1" max="4" required>
+                                        <input type="number" name="reponse_bonne[]" class="correct" value="1" min="1" max="4" required />
                                     </td>                            
                                     <td class='points'>
                                         <label for="points">Nombre de points :</label>
-                                        <input type="number" name="points[]" required min="1" max="100" values="5">
+                                        <input type="number" name="points[]" required min="1" max="100" value="1" />
                                     </td>
                                 </tr>
                             </tbody>
                             <tfoot>
                                 <tr>
                                     <td>                     
-                                        <input type="button" value="Ajouter une question" class="button" onclick="ajouterLigne()"> 
+                                        <input type="button" value="Ajouter une question" id="ajoute" class="button" > 
                                     </td>
                                 </tr>
                                 <tr> 

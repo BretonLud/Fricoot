@@ -22,12 +22,16 @@ td{
     display: block;
 }
 
+.number{
+    width: 20px;
+    background-color: white;
+}
 
-.quest input{
+.quest .qu{
     width: 400px;
     text-align: center;
-  }
-
+    }
+ 
 .q{
     margin-top: 10px;
     margin-bottom: 10px;

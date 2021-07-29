@@ -1,56 +1,85 @@
 <?php
 session_start();
-// ouverture d'une connexion à la bdd 
+// ouverture d'une connexion à la bdd agenda
 require '../Connexion.php';
 
 $dbh = (new Connexion())->conect();
 
 $title = $_POST['title'];
-$question = $_POST['question_name'];
-$r = $_POST['reponse_1'];
-$r1 = $_POST['reponse_2'];
-$r2 = $_POST['reponse_3'];
-$r3 = $_POST['reponse_4'];
-$answer = $_POST['reponse_bonne'];
+$questions = $_POST['question_name'];
+$reponses = array();
+$reponses[1] = $_POST['reponse1'];
+$reponses[2] = $_POST['reponse2'];
+$reponses[3] = $_POST['reponse3'];
+$reponses[4] = $_POST['reponse4'];
+$Goodanswer = $_POST['reponse_bonne'];
 $points = $_POST['points'];
-$nmbquestion = count($question);
+$nmbquestion = count($questions);
 $err = false;
+$j = 0;
 
-if (!emtpy($title)){
-    for ($i = 0; $i < $nmbquestion; ++$i){
+if (!empty($title) && !empty($questions) && !empty($points) && !empty($reponses) && !empty($Goodanswer)){
 
-        $questions = $question[$i];
-        $rep = $r[$i];
-        $rep1 = $r1[$i];
-        $rep2 = $r2[$i];
-        $rep3 = $r3[$i];
-        $rb = $answer[$i];
-        $point = $points[$i];
+    $pdoTitle = $dbh->prepare('INSERT INTO quiz(nom) VALUES (:name)');
+    $pdoTitle->bindParam(':name', $title);
+    $pdoTitle->execute();
+    
+    $last_id = $dbh->lastInsertId();
+    $id_quiz= $last_id;
 
-        if ( !empty($questions) && !empty($rep) && !empty($rep1) && !empty($rep2) && !empty($rep3) && !empty($rb) && !empty($point)){
-            // préparation de la requête d'insertion SQL
-                $pdoStat = $dbh->prepare('INSERT INTO questions(question_name, reponses_1, reponses_2, reponses_3, reponses_4, reponse_bonne, points) VALUES (:question_name, :reponse_1, :reponse_2, :reponse_3, :reponse_4, :reponse_bonne, :points)');
-                //on lie chaque marqueur à une valeur
-                $pdoStat->bindParam(':question_name', $questions);
-                $pdoStat->bindParam(':reponse_1', $rep);
-                $pdoStat->bindParam(':reponse_2', $rep1);
-                $pdoStat->bindParam(':reponse_3', $rep2);
-                $pdoStat->bindParam(':reponse_4', $rep3);
-                $pdoStat->bindParam(':reponse_bonne', $rb);
-                $pdoStat->bindParam(':points', $point);
+        for ($i = 0; $i < $nmbquestion; ++$i){
             
-                // éxécution de la requête préparée
-                $pdoStat->execute();              
-        } else {
-            $err = true;
-        }
-    }
+            $question = $questions[$i];                                          
+            $rb = $Goodanswer[$i];
+            $point = $points[$i];
+            
+             // préparation de la requête d'insertion SQL
+             $pdoStat = $dbh->prepare('INSERT INTO questions(question, points, id_quiz) VALUES (:question, :points, :id_quiz)');
+             //on lie chaque marqueur à une valeur
+             $pdoStat->bindParam(':question', $question);
+             $pdoStat->bindParam(':points', $point);
+             $pdoStat->bindParam('id_quiz', $id_quiz);
+             
+             // éxécution de la requête préparée
 
-    if ($err === true){
+            if ($pdoStat->execute() === true ){
+
+               
+                $last_id = $dbh->lastInsertId();
+                $id = $last_id;                
+
+                foreach ($reponses as $reponse => $values){
+                    if($values != ''){
+                        if($reponse == $rb){
+                            $answers = 1;
+                        }   else {
+                            $answers = 0;
+                        }
+    
+                $value = $values[$i];
+                
+                            $pdoRep = $dbh->prepare('INSERT INTO reponses(id_question, reponse_bonne, reponse) VALUES (:id_question, :reponse_bonne, :reponse)');
+                            $pdoRep->bindParam(':id_question', $id);
+                            $pdoRep->bindParam(':reponse_bonne', $answers);
+                            $pdoRep->bindParam(':reponse', $value);
+                            $pdoRep->execute();
+                        
+                            }  
+                        } 
+                        }else {
+                            header('Location:./index.php');
+                            die;
+                }  
+        }         
+        
+} else {
+    $err = true;
+    }  
+
+if ($err === true){
         header('Location:./index.php');
     } else {
         header('Location:./attente.php');
     }
-}    
 
 
