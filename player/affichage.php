@@ -5,11 +5,12 @@ require '../Connexion.php';
 
 $dbh = (new Connexion())->conect();
 
-	
-	$quiz = $_SESSION['quiz'];
+	//on récupère la donnée du nom du quiz
+	$quiz = $_POST['pin'];
+
 
 	$sth = $dbh->prepare('SELECT id, nom FROM quiz WHERE nom = :nom ');
-	$sth->bindValue(':nom', $quiz);
+	$sth->bindParam(':nom', $quiz);
 	$sth->execute();
 	
 	$data = $sth->fetch();
@@ -17,30 +18,42 @@ $dbh = (new Connexion())->conect();
 	
 	
 	if ($row > 0 ){
+		if (isset($_GET['numquestion'])){
 
-		$sth = $dbh->prepare('SELECT id, question, points, id_quiz FROM questions WHERE id_quiz = :id_quiz');
-		$sth->bindValue(':id_quiz', $data['id']);
+			$current_question = $_GET['numquestion'] - 1; 
+			} else {
+				$current_question = 0;
+			}
+
+		$sth = $dbh->prepare('SELECT id, question, points, id_quiz FROM questions WHERE id_quiz = :id_quiz LIMIT 1 OFFSET :current_question ');
+		$sth->bindParam(':id_quiz', $data['id']);
+		$sth->bindParam(':current_question', $current_question, PDO::PARAM_INT);
 		$sth->execute();
 
-		$qdata = $sth->fetch();
+		$qdatas = $sth->fetchAll();
 		$row = $sth->rowcount();
-		$question = $qdata['question'];
-		$number = $qdata['id'];
-		$total = $row;
+		
+		for ($i = 0 ; $i < $row; $i++){
+
+			
+			$qdata = $qdatas[$i];			
+			$questions = $qdata['question'];
+			var_dump($questions);
+			$number = $qdata['id'];
+			$total = $row;
+			
 
 		if ($row > 0 ){
 			
 			$sth = $dbh->prepare('SELECT id_question, reponse_bonne, reponse FROM reponses WHERE id_question = :id_question');
-			$sth->bindValue(':id_question', $qdata['id']);
+			$sth->bindValue(':id_question', $number);
 			$sth->execute();
 
 			$rdatas = $sth->fetchAll(PDO::FETCH_ASSOC);
 																
-		
+		}
 	}
 }
-	
-	
  ?>
 <!DOCTYPE html>
 <html>
@@ -57,37 +70,36 @@ $dbh = (new Connexion())->conect();
 	</div>
       </header>
 
-
+	  <nav>	
+        <div class="controller__AppWrapper-sc-1m4rw0k-0 test">
+            <div class="background__Background-sc-15eg2v3-0 test1">
+                <aside class="background-shapes__CircleShape-waao7z-1 gVOCQO"></aside>
+                <aside class="background-shapes__CircleShape-waao7z-1 eanPtI"></aside>                
+				<div class="current">Question <?php echo $number; ?> / <?php echo $total; ?></div>
+				<p>
+				<?php 
+					echo '<p>'.$questions.'</p>';
+				 ?>
+				</p>
+				<form method="post" action="process.php">
+					<ul class="choices">
+						<?php foreach ( $rdatas as $rdata){
+							if ( $qdata['id'] = $rdata['id_question']){
+							echo	'<li><input name="choice" type="radio" />';
+							echo ''.$rdata["reponse"]. '</li>';
+							}
+						}?>					
+					</ul>
+					<input type="submit" value="submit" />
+					<input type="hidden" name="number" value="<?php echo $number; ?>" />
+				</form>
+            </div>
+        </div>    
+    </nav>
       <main>
-      <div class="container">
-        <div class="current">Question <?php echo $number; ?> / <?php echo $total; ?></div>
-	<p class="question">
-	   <?php echo $question ?>
-	</p>
-	<form method="post" action="process.php">
-	      <ul class="choices">
-	        <?php foreach ( $rdatas as $rdata){
-				if ( $qdata['id'] = $rdata['id_question']){
-
-				echo	'<li><input name="choice" type="radio" />';
-		  		echo $rdata["reponse"]; 
-					'</li>';
-				}
-			}?>
-		
-	      </ul>
-	      <input type="submit" value="submit" />
-	      <input type="hidden" name="number" value="<?php echo $number; ?>" />
-	</form>
+      
       </div>
     </div>
     </main>
 
-
-    <footer>
-      <div class="container">
-      	   Copyright &copy; 2015, PHP Quizzer
-      </div>
-    </footer>
-  </body>
-</html>
+<?php require '../templates/footer.php' ?>

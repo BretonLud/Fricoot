@@ -31,6 +31,7 @@ $quiz = $_SESSION['quiz'];
                 </div>
             </div>
         </div>    
-    </nav>    
+    </nav>
+    <?php session_abort(); ?>    
 </body>
 </html>
