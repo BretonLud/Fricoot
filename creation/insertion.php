@@ -26,7 +26,8 @@ if (!empty($title) && !empty($questions) && !empty($points) && !empty($reponses)
     
     $last_id = $dbh->lastInsertId();
     $id_quiz= $last_id;
-
+    $_SESSION['quiz'] = $title;
+    
         for ($i = 0; $i < $nmbquestion; ++$i){
             
             $question = $questions[$i];                                          

@@ -23,14 +23,14 @@ session_start();
                 <aside class="background-shapes__CircleShape-waao7z-1 gVOCQO"></aside>
                 <aside class="background-shapes__CircleShape-waao7z-1 eanPtI"></aside>
                 <div class="box">
-                    <form class="form" method="post" action="attente.php">
+                    <form class="form" method="post" action="affichage.php">
                         <div>
                             <label for="pseudo">Votre pseudo :</label>
                             <input id="pseudo" class="champs" placeholder="Pseudo" name="pseudo" maxlength="20">
                         </div>
                         <div>
-                            <label for="pin">Le code pin :</label>
-                            <input name="pin" id="pin" class="champs" placeholder="Code Pin" maxlength="10">
+                            <label for="pin">Nom du quiz :</label>
+                            <input name="pin" id="pin" class="champs" placeholder="Nom du quiz">
                         </div>
                         <div class="button" id="submit">
                             <input name="start" type="submit" value="Valider">                            
