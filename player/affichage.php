@@ -5,9 +5,8 @@ require '../Connexion.php';
 
 $dbh = (new Connexion())->conect();
 
-	//on récupère la donnée du nom du quiz
+	//on récupère la donnée du nom
 	$quiz = $_POST['pin'];
-
 
 	$sth = $dbh->prepare('SELECT id, nom FROM quiz WHERE nom = :nom ');
 	$sth->bindParam(':nom', $quiz);
@@ -15,31 +14,26 @@ $dbh = (new Connexion())->conect();
 	
 	$data = $sth->fetch();
 	$row  = $sth->rowCount();
-	
-	
+
 	if ($row > 0 ){
-		if (isset($_GET['numquestion'])){
+		/*if (isset($_GET['numquestion'])){
 
 			$current_question = $_GET['numquestion'] - 1; 
-			} else {
-				$current_question = 0;
-			}
+		} else {
+			$current_question = 0;
+		}*/
 
-		$sth = $dbh->prepare('SELECT id, question, points, id_quiz FROM questions WHERE id_quiz = :id_quiz LIMIT 1 OFFSET :current_question ');
+		$sth = $dbh->prepare('SELECT id, question, points, id_quiz FROM questions WHERE id_quiz = :id_quiz /*LIMIT 1 OFFSET :current_question*/ ');
 		$sth->bindParam(':id_quiz', $data['id']);
-		$sth->bindParam(':current_question', $current_question, PDO::PARAM_INT);
+		/*$sth->bindParam(':current_question', $current_question, PDO::PARAM_INT);*/
 		$sth->execute();
 
-		$qdatas = $sth->fetchAll();
+		$qdatas = $sth->fetch();
 		$row = $sth->rowcount();
-		
-		for ($i = 0 ; $i < $row; $i++){
-
+					
+			$questions = $qdatas['question'];
 			
-			$qdata = $qdatas[$i];			
-			$questions = $qdata['question'];
-			var_dump($questions);
-			$number = $qdata['id'];
+			$number = $qdatas['id'];
 			$total = $row;
 			
 
@@ -52,7 +46,7 @@ $dbh = (new Connexion())->conect();
 			$rdatas = $sth->fetchAll(PDO::FETCH_ASSOC);
 																
 		}
-	}
+	
 }
  ?>
 <!DOCTYPE html>
