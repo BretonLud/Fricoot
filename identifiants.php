@@ -1,6 +1,6 @@
 <?php
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'quizz');
-define('DB_USER', 'Ludovic');
-define('DB_PWD' , 'Breton.1505');
+define('DB_HOST', '');
+define('DB_NAME', '');
+define('DB_USER', '');
+define('DB_PWD' , '');
 ?>
